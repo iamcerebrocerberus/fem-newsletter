@@ -7,12 +7,10 @@ import iconSuccess from "./assets/icon-success.svg";
 import isEmail from "validator/lib/isEmail";
 
 const StyledContainer = styled.main`
+  --md-width: 1000px;
   background-color: white;
   overflow: hidden;
-  border-radius: .6rem;
-  picture {
-    margin-top: -6rem;
-  }
+  border-radius: 0.6rem;
 
   section {
     padding: 1rem;
@@ -99,8 +97,43 @@ const StyledContainer = styled.main`
   }
 
   @media screen and (min-width: 397px) {
-    max-width: 386px;
+    max-width: 375px;
     margin: auto auto;
+  }
+
+  @media screen and (min-width: 1140px) {
+    min-width: var(--md-width);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    picture {
+      margin: 0;
+      grid-column: 2/-1;
+      grid-row: 1 / -1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 1.5rem;
+    }
+
+    section {
+      padding-left: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      h1 {
+        font-size: 4rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+
+      li {
+        font-size: 1.1rem;
+      }
+    }
   }
 `;
 function App() {
@@ -125,9 +158,10 @@ function App() {
   return (
     <StyledContainer>
       <picture>
-        <source srcSet={signUpDesktop} />
-        <img src={signUpMobile} alt="mobile sign up" />
+        <source srcSet={signUpDesktop} media="(min-width: 1140px)" />
+        <img src={signUpMobile} alt="sign up mobile" />
       </picture>
+
       <section>
         <h1>Stay updated!</h1>
         <p>Join 60,000+ product managers receiveing monthly updates on:</p>
