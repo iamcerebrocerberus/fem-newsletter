@@ -64,7 +64,7 @@ const SuccessModel = styled.section`
   }
 `;
 
-function Success({ onDismissButtonClick }) {
+function Success({ onDismissButtonClick, emailField }) {
   return (
     <SuccessModel>
       <div className="modal-wrapper">
@@ -73,9 +73,8 @@ function Success({ onDismissButtonClick }) {
         </div>
         <h3>Thanks for subscribing!</h3>
         <p>
-          A confirmation email has been sent to <b>ash@loremcompany.com</b>.
-          Please open it and click the button inside to confirm your
-          subscription.
+          A confirmation email has been sent to <b>{emailField}</b>. Please open
+          it and click the button inside to confirm your subscription.
         </p>
         <button onClick={onDismissButtonClick}>Dismiss message</button>
       </div>

@@ -192,7 +192,10 @@ function App() {
         </form>
       </section>
       {showSuccessModal && (
-        <Success onDismissButtonClick={handleDismissButtonClick} />
+        <Success
+          onDismissButtonClick={handleDismissButtonClick}
+          emailField={emailField}
+        />
       )}
     </StyledContainer>
   );
